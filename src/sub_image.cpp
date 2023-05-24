@@ -15,7 +15,7 @@ void imageCallback(const sensor_msgs::CompressedImageConstPtr& msg) {
     cv_bridge::CvImagePtr cv_ptr_compressed =
         cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
     imgCallback = cv_ptr_compressed->image;
-    bool result1 = imwrite("/home/zh/Pictures/image_png.png", imgCallback);
+    bool result1 = imwrite("/home/lcx/data/pictures/image_png.png", imgCallback);
     if (result1) ROS_INFO("save image succss");
     cv::imshow("imgCallback", imgCallback);
     // 显示函数和刷新函数一起使用，否则无法正常显示。

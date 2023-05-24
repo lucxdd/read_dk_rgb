@@ -23,7 +23,7 @@ catkin_package(
 )
 
 # Kinect DK相机
-find_package(k4a REQUIRED)# 关键。因为后面的target_link_libraries中用到了k4a::k4a，所以在这儿加了一行，否则会显示未定义声明
+# find_package(k4a REQUIRED)# 关键。因为后面的target_link_libraries中用到了k4a::k4a，所以在这儿加了一行，否则会显示未定义声明
 # Find OpenCV
 find_package(OpenCV REQUIRED)
 
@@ -33,12 +33,13 @@ include_directories( ${CMAKE_CURRENT_LIST_DIR} ) # 包含当前目录下我的�
 include_directories( ${OpenCV_INCLUDE_DIRS} )
  
 # Declare the executable target built from your sources
-add_executable( read_dk_rgb src/main.cpp )
+# add_executable( read_dk_rgb src/main.cpp )
 add_executable( pic_conv src/pic_conv.cpp )
 add_executable( sub_image src/sub_image.cpp )
 
 # Link your application with other libraries
-target_link_libraries(read_dk_rgb k4a::k4a ${OpenCV_LIBS})
+# target_link_libraries(read_dk_rgb k4a::k4a ${OpenCV_LIBS})
+# target_link_libraries(read_dk_rgb ${OpenCV_LIBS})
 target_link_libraries(pic_conv ${OpenCV_LIBS})
 target_link_libraries(sub_image ${OpenCV_LIBS} ${catkin_LIBRARIES})
 
